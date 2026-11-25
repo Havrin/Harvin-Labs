@@ -1,0 +1,20 @@
+# Workspace / Agent / Planning
+.agents/
+plans/
+*.code-workspace
+
+# Editors & IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs & temporary files
+*.log
+*.tmp

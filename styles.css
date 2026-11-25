@@ -1,0 +1,1119 @@
+/* ==========================================================================
+   Harvin Labs — Editorial Studio Frame + Per-Game Full-Width Themes
+   Zero external CDNs. 100% self-hosted OFL typography & game textures.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Archivo";
+  src: url("assets/fonts/Archivo-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archivo Condensed";
+  src: url("assets/fonts/ArchivoCondensed-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archivo Condensed";
+  src: url("assets/fonts/ArchivoCondensed-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Courier Prime";
+  src: url("assets/fonts/CourierPrime-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Courier Prime";
+  src: url("assets/fonts/CourierPrime-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("assets/fonts/JetBrainsMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Studio frame tokens (Harvin Labs) */
+  --hl-ground: #0b1118;
+  --hl-surface: #111923;
+  --hl-hairline: #1d2836;
+  --hl-hairline-strong: #2e3e52;
+  --hl-ink: #edf2f7;
+  --hl-ink-secondary: #9aa9bc;
+  --hl-ink-muted: #6f8096;
+  --hl-emerald: #10b981;
+  --hl-emerald-bright: #34d399;
+
+  /* Typography */
+  --font-display: "Archivo Condensed", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-receipt: "Courier Prime", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Motion (Emil Motion Craft) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --dur-fast: 150ms;
+
+  /* Layout */
+  --max-width: 1160px;
+  --reading-width: 68ch;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--hl-ground);
+  color: var(--hl-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--hl-ground);
+}
+
+main {
+  flex: 1;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+
+:focus-visible {
+  outline: 2px solid var(--hl-emerald-bright);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* ==========================================================================
+   Site Header (Harvin Labs Frame)
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: rgba(11, 17, 24, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--hl-hairline);
+}
+
+.header-inner {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  line-height: 1;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  color: var(--hl-ink);
+}
+
+.brand-sub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--hl-emerald-bright);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 2vw, 1.75rem);
+}
+
+.site-nav a {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hl-ink-secondary);
+  white-space: nowrap;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--hl-ink);
+}
+
+/* Language Switch (DE / EN) */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--hl-hairline-strong);
+}
+
+.lang-btn {
+  appearance: none;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 0.22rem 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  color: var(--hl-ink-muted);
+  cursor: pointer;
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.lang-btn:hover {
+  color: var(--hl-ink);
+}
+
+.lang-btn:active {
+  transform: scale(0.97);
+}
+
+.lang-btn[aria-pressed="true"] {
+  color: var(--hl-ink);
+  border-color: var(--hl-hairline-strong);
+  background-color: var(--hl-surface);
+}
+
+.lang-sep {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--hl-hairline-strong);
+  user-select: none;
+}
+
+/* ==========================================================================
+   Per-Game Full-Width Theme: THE MIDNIGHT PHARMACY (Drucksachen §1G)
+   Tokens & textures directly from Assets/Content/UI/Theme/Grundwerte.uss
+   ========================================================================== */
+.game-band[data-game="midnight-pharmacy"] {
+  --mp-card: #f0ece0;
+  --mp-card-shade: #e3dece;
+  --mp-card-rule: #cbc5b2;
+  --mp-slate-ink: #28333a;
+  --mp-slate-ink-dim: #5a6367;
+  --mp-slate-ink-faint: #8d918c;
+  --mp-slate-band: #333f47;
+  --mp-slate-band-lit: #3f4d56;
+  --mp-slate-band-edge: #1e262b;
+  --mp-index-red: #cf6a60;
+  --mp-index-line: #b8c9dc;
+  --mp-highlight: rgba(214, 232, 62, 0.85);
+  --mp-relabel: #f2a516;
+  --mp-relabel-lit: #f7b53a;
+  --mp-relabel-edge: #a86e06;
+  --mp-relabel-ink: #2a1d05;
+  --mp-thermal: #f7f5ef;
+  --mp-thermal-ink: #2a2a2a;
+  --mp-thermal-ink-dim: #5c5c56;
+  --mp-thermal-rule: #8a8a84;
+  --mp-cross: #12804f;
+  --mp-paper-shadow: rgba(30, 24, 12, 0.22);
+
+  position: relative;
+  width: 100%;
+  background-color: var(--mp-card);
+  background-image: url("assets/games/midnight-pharmacy/Papierkorn.png");
+  background-repeat: repeat;
+  background-size: 64px 64px;
+  color: var(--mp-slate-ink);
+  overflow-x: clip;
+}
+
+.game-band[data-game="midnight-pharmacy"] :focus-visible {
+  outline: 2px solid var(--mp-slate-ink);
+  outline-offset: 3px;
+}
+
+/* Full-width slate band header (like Kistenaufkleber / Aushang) */
+.mp-band {
+  width: 100%;
+  background-color: var(--mp-slate-band);
+  border-bottom: 2px solid var(--mp-slate-band-edge);
+  color: var(--mp-card);
+}
+
+.mp-band-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding-block: 0.65rem;
+}
+
+.mp-band-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mp-cross {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.mp-cross::before,
+.mp-cross::after {
+  content: "";
+  position: absolute;
+  background-color: var(--mp-card);
+}
+
+.mp-cross::before {
+  left: 0;
+  right: 0;
+  top: 4.5px;
+  height: 5px;
+}
+
+.mp-cross::after {
+  top: 0;
+  bottom: 0;
+  left: 4.5px;
+  width: 5px;
+}
+
+.mp-band-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--mp-card);
+}
+
+.mp-band-meta {
+  font-family: var(--font-receipt);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: rgba(240, 236, 224, 0.86);
+}
+
+/* Hero area directly on full-width pharmacy cardstock */
+.mp-hero {
+  padding-block: clamp(2.75rem, 6vw, 4.75rem) clamp(2.5rem, 5vw, 4rem);
+}
+
+.mp-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.38fr) minmax(270px, 0.72fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.mp-kicker {
+  font-family: var(--font-receipt);
+  font-size: 0.84rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mp-slate-ink-dim);
+  margin: 0 0 0.85rem;
+}
+
+.mp-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3.1rem, 7.6vw, 5.75rem);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--mp-slate-ink);
+  margin: 0;
+}
+
+.mp-title-line {
+  display: block;
+}
+
+.mp-lead {
+  font-family: var(--font-body);
+  font-size: clamp(1.04rem, 1.45vw, 1.18rem);
+  line-height: 1.62;
+  color: var(--mp-slate-ink);
+  max-width: 54ch;
+  margin: 1.5rem 0 0;
+}
+
+/* Primary Wishlist Action (Nachetikett — the ONE loud element on the sheet) */
+.mp-cta-block {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.mp-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.35rem;
+}
+
+.mp-relabel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.92rem 1.65rem 0.84rem;
+  background-color: var(--mp-relabel);
+  color: var(--mp-relabel-ink);
+  border: 1.5px solid var(--mp-relabel);
+  border-bottom: 3px solid var(--mp-relabel-edge);
+  border-radius: 1px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.12rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  transform: rotate(-0.6deg);
+  cursor: pointer;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.mp-relabel-btn:hover {
+  background-color: var(--mp-relabel-lit);
+  border-top-color: var(--mp-relabel-lit);
+  border-left-color: var(--mp-relabel-lit);
+  border-right-color: var(--mp-relabel-lit);
+  transform: rotate(-0.3deg);
+}
+
+.mp-relabel-btn:active {
+  transform: translateY(1px) scale(0.97) rotate(-0.3deg);
+}
+
+.mp-steam-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.mp-cta-note {
+  font-family: var(--font-receipt);
+  font-size: 0.82rem;
+  color: var(--mp-slate-ink-dim);
+  margin: 0;
+}
+
+.mp-cta-note strong {
+  color: var(--mp-slate-ink);
+  font-weight: 700;
+}
+
+/* Diegetic Thermal Receipt (Kassenbon — exact §1G receipt specs) */
+.mp-bon {
+  position: relative;
+  padding: 1.25rem 1.35rem 1.45rem;
+  color: var(--mp-thermal-ink);
+  filter: drop-shadow(0 8px 14px var(--mp-paper-shadow));
+}
+
+.mp-bon-paper {
+  position: absolute;
+  inset: 0 0 6px 0;
+  background-color: var(--mp-thermal);
+  background-image: url("assets/games/midnight-pharmacy/Papierkorn.png");
+  background-repeat: repeat;
+  background-size: 64px 64px;
+  z-index: 0;
+}
+
+.mp-bon-tear {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6px;
+  background-image: url("assets/games/midnight-pharmacy/Abrisskante-thermal.png");
+  background-size: 12px 6px;
+  background-repeat: repeat-x;
+  background-position: left top;
+  z-index: 0;
+}
+
+.mp-bon-content {
+  position: relative;
+  z-index: 1;
+}
+
+.mp-bon-head {
+  font-family: var(--font-receipt);
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  color: var(--mp-thermal-ink);
+}
+
+.mp-bon-sub {
+  font-family: var(--font-receipt);
+  font-size: 0.74rem;
+  text-align: center;
+  margin: 0.2rem 0 0;
+  color: var(--mp-thermal-ink-dim);
+}
+
+.mp-bon-rule {
+  height: 1px;
+  margin: 0.75rem 0;
+  background-image: url("assets/games/midnight-pharmacy/Strichellinie-thermal.png");
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+  background-position: left top;
+}
+
+.mp-bon-list {
+  margin: 0;
+  padding: 0;
+}
+
+.mp-bon-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.85rem;
+  padding-block: 0.28rem;
+  font-family: var(--font-receipt);
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.mp-bon-row dt {
+  color: var(--mp-thermal-ink-dim);
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.mp-bon-row dd {
+  margin: 0;
+  text-align: right;
+  color: var(--mp-thermal-ink);
+  font-weight: 700;
+}
+
+.mp-bon-row dd.is-accent {
+  color: var(--mp-cross);
+}
+
+.mp-bon-foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.35rem;
+}
+
+.mp-bon-code {
+  font-family: var(--font-receipt);
+  font-size: 0.72rem;
+  color: var(--mp-thermal-ink-dim);
+  line-height: 1.35;
+}
+
+.mp-barcode {
+  width: 96px;
+  height: 26px;
+  flex-shrink: 0;
+  background-image: url("assets/games/midnight-pharmacy/Strichcode-ink.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+/* Wide Taped Media Sheet (Screenshot / Key Art Slot) */
+.mp-media-section {
+  padding-bottom: clamp(3rem, 6vw, 4.75rem);
+}
+
+.mp-media-sheet {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--mp-slate-band-edge);
+  border: 2px solid var(--mp-slate-ink);
+  box-shadow: 0 12px 26px rgba(30, 24, 12, 0.22);
+}
+
+.mp-media-sheet img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mp-tape {
+  position: absolute;
+  width: 96px;
+  height: 27px;
+  background-image: url("assets/games/midnight-pharmacy/Klebeband.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.mp-tape--left {
+  top: -11px;
+  left: -24px;
+  transform: rotate(-29deg);
+}
+
+.mp-tape--right {
+  top: -11px;
+  right: -24px;
+  transform: rotate(26deg);
+}
+
+.mp-media-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background-color: #20292f;
+  background-image:
+    linear-gradient(to right, rgba(240, 236, 224, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(240, 236, 224, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--mp-card);
+}
+
+.mp-media-placeholder-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+}
+
+.mp-media-placeholder p {
+  font-family: var(--font-receipt);
+  font-size: 0.86rem;
+  color: rgba(240, 236, 224, 0.78);
+  max-width: 54ch;
+  margin: 0;
+}
+
+.mp-media-placeholder code {
+  color: var(--mp-relabel-lit);
+  font-family: var(--font-receipt);
+}
+
+/* Editorial Feature Ledger (Index-Card Ruled — ZERO Card Grid) */
+.mp-ledger-section {
+  padding-bottom: clamp(3rem, 6vw, 4.75rem);
+}
+
+.mp-ledger-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--mp-index-red);
+}
+
+.mp-ledger-head h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--mp-slate-ink);
+  margin: 0;
+  line-height: 1.05;
+}
+
+.mp-ledger-meta {
+  font-family: var(--font-receipt);
+  font-size: 0.84rem;
+  color: var(--mp-slate-ink-dim);
+  letter-spacing: 0.06em;
+}
+
+.mp-ledger-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mp-ledger-row {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(190px, 0.42fr) minmax(0, 1fr);
+  gap: 0.65rem 1.75rem;
+  align-items: baseline;
+  padding-block: clamp(1.25rem, 2.5vw, 1.7rem);
+  border-bottom: 1px solid var(--mp-card-rule);
+}
+
+.mp-ledger-num {
+  font-family: var(--font-receipt);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--mp-slate-ink-dim);
+  letter-spacing: 0.08em;
+}
+
+.mp-ledger-title {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--mp-slate-ink);
+  margin: 0;
+  line-height: 1.12;
+  z-index: 1;
+}
+
+/* Real Textmarker.png highlight stroke from Unity project */
+.mp-ledger-title::before {
+  content: "";
+  position: absolute;
+  inset: -2px -8px -3px -6px;
+  background-image: url("assets/games/midnight-pharmacy/Textmarker-day.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transform-origin: left center;
+  transform: scaleX(0) rotate(-0.7deg);
+  z-index: -1;
+}
+
+.mp-ledger-row:hover .mp-ledger-title::before {
+  transform: scaleX(1) rotate(-0.7deg);
+  transition: transform 110ms var(--ease-out);
+}
+
+.mp-ledger-copy {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.64;
+  color: var(--mp-slate-ink-dim);
+  max-width: 60ch;
+}
+
+/* Game Band Foot Strip (Fiction Note) */
+.mp-sheet-foot {
+  border-top: 2px solid var(--mp-slate-ink);
+  padding-block: 1.5rem clamp(2.5rem, 5vw, 3.75rem);
+}
+
+.mp-disclaimer {
+  font-family: var(--font-receipt);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--mp-slate-ink-dim);
+  max-width: 68ch;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Studio Band (Harvin Labs — Calm Obsidian Frame below Game World)
+   ========================================================================== */
+.studio-band {
+  width: 100%;
+  background-color: var(--hl-surface);
+  border-top: 1px solid var(--hl-hairline-strong);
+  padding-block: clamp(3.25rem, 6.5vw, 5.25rem);
+}
+
+.studio-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2.25rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hl-emerald-bright);
+  margin: 0 0 0.85rem;
+}
+
+.studio-heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.85rem, 3.2vw, 2.55rem);
+  line-height: 1.04;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--hl-ink);
+  margin: 0;
+}
+
+.studio-copy p {
+  color: var(--hl-ink-secondary);
+  margin: 1.05rem 0 0;
+  max-width: 50ch;
+  font-size: 0.98rem;
+}
+
+.channels-heading {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hl-ink-muted);
+  margin: 0 0 0.85rem;
+}
+
+.channel-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--hl-hairline-strong);
+}
+
+.channel-list li {
+  border-bottom: 1px solid var(--hl-hairline);
+}
+
+.channel-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.05rem 0;
+}
+
+.channel-link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.05rem 0;
+}
+
+.channel-link:hover .channel-name {
+  color: var(--hl-emerald-bright);
+}
+
+.channel-link:hover .channel-meta {
+  color: var(--hl-ink);
+}
+
+.channel-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--hl-ink);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.channel-meta {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hl-ink-muted);
+  white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+/* ==========================================================================
+   Legal / Read Mode Pages (Impressum & Datenschutz)
+   ========================================================================== */
+.legal-main {
+  padding-block: clamp(2.75rem, 6vw, 4.75rem);
+  background-color: var(--hl-ground);
+}
+
+.legal-article {
+  max-width: var(--reading-width);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hl-ink-secondary);
+  margin-bottom: 1.75rem;
+}
+
+.back-link:hover {
+  color: var(--hl-emerald-bright);
+}
+
+.legal-article h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.15rem, 4.4vw, 3.3rem);
+  line-height: 1.04;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: var(--hl-ink);
+  margin: 0 0 0.75rem;
+}
+
+.legal-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--hl-ink-muted);
+  margin: 0 0 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--hl-hairline);
+}
+
+.legal-lang-note {
+  margin: 0 0 2rem;
+  padding: 0.85rem 1rem;
+  border-left: 2px solid var(--hl-emerald);
+  background-color: var(--hl-surface);
+  font-size: 0.9rem;
+  color: var(--hl-ink-secondary);
+}
+
+.legal-lang-note[hidden] {
+  display: none;
+}
+
+.legal-article h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.38rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--hl-ink);
+  margin: 2.25rem 0 0.75rem;
+}
+
+.legal-article p,
+.legal-article li {
+  color: var(--hl-ink-secondary);
+  font-size: 0.97rem;
+  line-height: 1.72;
+}
+
+.legal-article ul {
+  padding-left: 1.25rem;
+}
+
+.legal-article a {
+  color: var(--hl-emerald-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.placeholder-mark {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: #fde68a;
+  background-color: rgba(242, 165, 22, 0.14);
+  border: 1px dashed rgba(242, 165, 22, 0.5);
+  padding: 0.05rem 0.4rem;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   Footer (Legal Links Strictly Here)
+   ========================================================================== */
+.site-footer {
+  border-top: 1px solid var(--hl-hairline);
+  padding-block: 1.6rem;
+  background-color: var(--hl-ground);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--hl-ink-muted);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-links a:hover,
+.footer-links a[aria-current="page"] {
+  color: var(--hl-ink);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 900px) {
+  .mp-hero-grid,
+  .studio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mp-bon {
+    max-width: 420px;
+  }
+
+  .mp-ledger-row {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    gap: 0.35rem 1rem;
+  }
+
+  .mp-ledger-copy {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-nav {
+    display: none;
+  }
+
+  .lang-switch {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .mp-tape {
+    width: 72px;
+    height: 20px;
+  }
+
+  .mp-tape--left {
+    top: -8px;
+    left: -14px;
+  }
+
+  .mp-tape--right {
+    top: -8px;
+    right: -14px;
+  }
+
+  .mp-ledger-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .mp-ledger-copy {
+    grid-column: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  .mp-relabel-btn:active,
+  .lang-btn:active {
+    transform: none;
+  }
+}
